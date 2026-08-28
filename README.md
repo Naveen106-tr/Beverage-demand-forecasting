@@ -8,6 +8,8 @@ Demand planners in the beverage-alcohol industry (e.g., at a company like Diageo
 
 This project answers that question end-to-end using real data — not synthetic examples — and documents the *reasoning* behind each modeling decision, not just the code.
 
+![Raw Series](outputs/outputs_raw_series.png)
+
 ## Data
 
 - **Source:** U.S. Census Bureau, Monthly Retail Trade Survey — Retail Sales: Beer, Wine, and Liquor Stores (NAICS 4453)
@@ -27,12 +29,19 @@ The notebook (`demand_forecasting_analysis.ipynb`) walks through:
 6. **Model Evaluation** — MAE, RMSE, and MAPE calculated on the same held-out backtest window for a fair, apples-to-apples comparison
 7. **Safety Stock Calculation** — deriving a defensible inventory buffer directly from the selected model's own backtested forecast error (Z × σ × √Lead Time), rather than an arbitrary flat percentage
 
+### Classical Decomposition vs. STL
+
+![Classical Decomposition](outputs/outputs_decomposition_classical.png)
+![STL Decomposition](outputs/outputs_decomposition_stl.png)
+
 ## Key Findings
 
 - **SARIMA substantially outperformed every other model on real, held-out data**: MAE of 216.69 vs. Naive's 2,068.83, RMSE of 251.44 vs. Holt's Method's 1,493.51, and MAPE under 4% vs. over 37% for Naive.
 - **STL revealed the December seasonal effect is not fixed** — it grew from ~$1,660M (2020) to ~$1,835M (2023) before easing, a pattern classical decomposition's flat-averaging approach structurally cannot detect.
 - **A real, current business signal surfaced directly from the data**: the trend component shows measurable softening in 2024–2026, consistent with recently reported industry-wide growth deceleration in the beverage-alcohol category.
 - **An honest statistical nuance is documented, not hidden**: combining seasonal and lag-1 differencing together did not pass the ADF stationarity test (likely over-differencing), even though each differencing method individually did — a reminder that formal tests can behave counter-intuitively, and backtested model performance is ultimately the more reliable guide.
+
+![Model Comparison](outputs/outputs_model_comparison.png)
 
 ## Why This Matters for Demand Planning
 
