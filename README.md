@@ -47,6 +47,34 @@ The notebook (`demand_forecasting_analysis.ipynb`) walks through:
 
 Every seasonality-blind model tested (Moving Average, Exponential Smoothing, Holt's Method) systematically misforecasts around the December-to-January transition — because none of them have any mechanism to recognize "this calendar position behaves differently." SARIMA's explicit seasonal component corrects this. This isn't a marginal technical improvement — it's the difference between a safety stock plan built on a forecast that's off by single-digit percentages versus one that's off by 20-35%+, with direct, quantifiable cost implications for overstocking or stockouts.
 
+---
+
+## Companion Piece: Power BI S&OP Dashboard
+
+A 4-page interactive Power BI dashboard translates this analysis into a business-facing S&OP planning tool, built on the same real dataset and the same model outputs from the notebook above. The `.pbix` file is included in this repo (`SOP_Demand_Dashboard.pbix`) — open it in Power BI Desktop to interact with it directly.
+
+### Page 1 — Executive S&OP Summary
+KPI cards for total sales, SARIMA forecast accuracy (MAPE), forecast bias, and year-over-year growth, alongside an actual-vs-forecast trend line and annual sales comparison.
+
+![Executive Summary](dashboard_screenshots/page1_executive_summary.png)
+
+### Page 2 — Demand Review
+Interactive decomposition (trend, seasonal, residual) with a year slicer, plus a table proving the December seasonal effect is not fixed — it grew from 1,664 (2020) to a peak of 1,835 (2023) before easing, exactly matching the STL finding from the notebook.
+
+![Demand Review](dashboard_screenshots/page2_demand_review.png)
+
+### Page 3 — Supply & Safety Stock Planning
+An interactive safety stock calculator — select a service level (90%-99%) and lead time (1-6 months) via slicers, and the buffer recalculates live using the real formula (Z × σ × √Lead Time), with σ derived from the SARIMA model's actual backtested forecast error.
+
+![Safety Stock Planning](dashboard_screenshots/page3_safety_stock.png)
+
+### Page 4 — Forecast Model Comparison
+The full 6-model comparison from the notebook, rendered interactively: SARIMA's RMSE of 251 against Holt's Method's 1,494, with a live line chart showing SARIMA tracking the actual holdout period closely while Holt's Method overshoots progressively due to mistaking the seasonal spike for ongoing trend.
+
+![Model Comparison](dashboard_screenshots/page4_model_comparison.png)
+
+---
+
 ## Limitations & Next Steps
 
 - This is national, category-level data — not brand or SKU-level. The identical pipeline applies directly given brand-level data.
