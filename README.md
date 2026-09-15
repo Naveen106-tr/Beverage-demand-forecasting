@@ -94,3 +94,16 @@ Python, pandas, NumPy, statsmodels (seasonal_decompose, STL, ARIMA, SARIMAX, adf
 ├── outputs/                             # Saved chart images
 └── README.md
 ```
+## SQL Companion Analysis
+
+The core Python/pandas analysis is recreated in SQL (`sql/sql_analysis.sql`) — demonstrating the same business logic using window functions, conditional logic, and joins directly against the dataset, verified to run cleanly end-to-end.
+
+**Covers:**
+- Aggregation and grouping (yearly totals, `WHERE` vs `HAVING`)
+- Window functions: `RANK() OVER (PARTITION BY...)` to confirm December's seasonal dominance every year without collapsing any rows
+- `LAG()` window functions recreating both lag-1 (trend-removing) and seasonal lag-12 (seasonality-removing) differencing directly in SQL — the same mechanics demonstrated by hand and in Python elsewhere in this project
+- Rolling window moving averages (`ROWS BETWEEN ... PRECEDING AND CURRENT ROW`) recreating the MA(3) and MA(6) models
+- `CASE WHEN` conditional categorization
+- `LEFT JOIN` vs `INNER JOIN`, demonstrated against a supplementary events table, with the row-count difference (78 vs. 4) shown directly
+
+Every query in this file has been tested and verified to execute without errors against the project dataset.
