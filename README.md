@@ -108,19 +108,20 @@ The core Python/pandas analysis is recreated in SQL (`sql/sql_analysis.sql`) —
 
 Every query in this file has been tested and verified to execute without errors against the project dataset.
 
-ABC-XYZ SKU Segmentation (K-Means Clustering)
+---
 
-A companion analysis (sku_segmentation/abc_xyz_kmeans_analysis.py) demonstrating how a demand planner would decide which forecasting/inventory-control effort each product actually deserves, rather than applying the same method to every SKU.
+## ABC-XYZ SKU Segmentation (K-Means Clustering)
 
-Methodology:
+A companion analysis (`sku_segmentation/abc_xyz_kmeans_analysis.py`) demonstrating how a demand planner would decide which forecasting/inventory-control effort each product actually deserves, rather than applying the same method to every SKU.
 
-ABC dimension — classifies SKUs by total consumption value using the standard Pareto/cumulative-percentage method (A = top 80% of value, B = next 15%, C = remaining 5%)
-XYZ dimension — classifies SKUs by demand variability using K-means clustering (K=3) on each SKU's Coefficient of Variation, rather than picking arbitrary variability thresholds in advance. K-means finds the natural breaks in the data itself.
+**Methodology:**
+- **ABC dimension** — classifies SKUs by total consumption value using the standard Pareto/cumulative-percentage method (A = top 80% of value, B = next 15%, C = remaining 5%)
+- **XYZ dimension** — classifies SKUs by demand variability using **K-means clustering** (K=3) on each SKU's Coefficient of Variation, rather than picking arbitrary variability thresholds in advance. K-means finds the natural breaks in the data itself.
 
-Note on data: SKU-level data is illustrative (built to reflect realistic stable/seasonal/erratic demand behavior across a mixed airline/retail-style product range), since real per-SKU sales data isn't publicly available. The methodology — including the K-means clustering approach — is identical to what would be applied against real SKU-level sales data.
+**Note on data:** SKU-level data is illustrative (built to reflect realistic stable/seasonal/erratic demand behavior across a mixed airline/retail-style product range), since real per-SKU sales data isn't publicly available. The methodology — including the K-means clustering approach — is identical to what would be applied against real SKU-level sales data.
 
-Key finding: K-means correctly recovered the underlying demand-behavior groups without being told them in advance — cluster centers landed at CV ≈ 0.08 (X), 0.22 (Y), and 0.41 (Z), cleanly separating genuinely stable, seasonal, and erratic products.
+**Key finding:** K-means correctly recovered the underlying demand-behavior groups without being told them in advance — cluster centers landed at CV ≈ 0.08 (X), 0.22 (Y), and 0.41 (Z), cleanly separating genuinely stable, seasonal, and erratic products.
 
-Show Image
+![ABC-XYZ Segmentation](sku_segmentation/abc_xyz_scatter.png)
 
-Why this matters: the AZ quadrant (high value, erratic demand — e.g., a rare limited-edition product) is the hardest and highest-stakes group to plan for: too valuable to ignore, but too unpredictable for a sophisticated statistical model to reliably forecast. These products typically need a fundamentally different strategy (larger safety buffers, more frequent manual review) rather than more forecasting sophistication. Conversely, CX products (low value, stable demand) need minimal attention — just a standing reorder process.
+**Why this matters:** the AZ quadrant (high value, erratic demand — e.g., a rare limited-edition product) is the hardest and highest-stakes group to plan for: too valuable to ignore, but too unpredictable for a sophisticated statistical model to reliably forecast. These products typically need a fundamentally different strategy (larger safety buffers, more frequent manual review) rather than more forecasting sophistication. Conversely, CX products (low value, stable demand) need minimal attention — just a standing reorder process.
