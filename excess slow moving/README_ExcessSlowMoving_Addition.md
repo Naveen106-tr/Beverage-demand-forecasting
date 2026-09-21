@@ -32,6 +32,7 @@ to a real stock ledger.
 
 ## Result
 
+   ![Excess & Slow-Moving Risk Map](excess_slow_moving_risk_map.png) 
 | MOC Status | SKU Count |
 |---|---|
 | Healthy | 10 |
