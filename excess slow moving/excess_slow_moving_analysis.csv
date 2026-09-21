@@ -1,0 +1,26 @@
+sku_name,ABC,XYZ,ABC_XYZ,total_value,avg_monthly_units,stock_on_hand,months_of_cover,MOC_status,risk_score,risk_tier
+Premium Whiskey 700ml,A,Y,AY,1031850.0,955.4166666666666,5933,6.2,Slow-moving,6,High Risk - act now
+Luxury Chocolate Box,A,Y,AY,581904.0,1347.0,9565,7.1,Slow-moving,6,High Risk - act now
+Designer Sunglasses,A,Z,AZ,298490.0,130.91666666666666,1296,9.9,Slow-moving,6,High Risk - act now
+Novelty Travel Gadget,B,Z,BZ,120875.0,201.45833333333334,1908,9.5,Slow-moving,4,Medium Risk - monitor
+Gin & Tonic Gift Set,A,Y,AY,544080.0,755.6666666666666,3871,5.1,Watch,3,Medium Risk - monitor
+Rare Single-Malt Scotch,A,Z,AZ,478680.0,166.20833333333334,1005,6.0,Watch,3,Medium Risk - monitor
+Premium Noise-Cancelling Headphones,A,Y,AY,503580.0,190.75,945,5.0,Watch,3,Medium Risk - monitor
+Perfume 50ml (Mid-tier),A,Y,AY,699930.0,530.25,2478,4.7,Watch,3,Medium Risk - monitor
+Business Class Wine (Bordeaux),A,Y,AY,690755.0,442.7916666666667,2637,6.0,Watch,3,Medium Risk - monitor
+Allergen-Free Meal,C,Z,CZ,13531.0,80.54166666666667,1094,13.6,Excess,3,Medium Risk - monitor
+Kids Activity Pack,C,Y,CY,65964.0,916.1666666666666,6391,7.0,Slow-moving,2,Low Risk
+Regional Craft Beer (rotating),C,Z,CZ,86339.0,654.0833333333334,7067,10.8,Slow-moving,2,Low Risk
+Limited-Edition Cologne,B,Z,BZ,183090.0,89.75,538,6.0,Watch,2,Low Risk
+Premium Sandwich (Seasonal Menu),B,Y,BY,126378.0,877.625,3212,3.7,Watch,2,Low Risk
+Business Class Amenity Kit,C,X,CX,116088.0,403.0833333333333,1234,3.1,Watch,1,Low Risk
+Standard Sandwich,A,X,AX,432108.0,4001.0,6949,1.7,Healthy,0,No Action Needed
+Duty-Free Cigarettes Carton,A,X,AX,1427160.0,1486.625,2011,1.4,Healthy,0,No Action Needed
+Snack Bar - Standard,B,X,BX,181393.5,5038.708333333333,15213,3.0,Healthy,0,No Action Needed
+Power Bank / Charger,B,X,BX,181698.0,344.125,611,1.8,Healthy,0,No Action Needed
+Standard Headphones,B,X,BX,217665.0,604.625,1697,2.8,Healthy,0,No Action Needed
+Soft Drink Can,B,X,BX,216082.1,6925.708333333333,13587,2.0,Healthy,0,No Action Needed
+Bottled Water 500ml,B,X,BX,227680.8,7905.583333333333,20226,2.6,Healthy,0,No Action Needed
+Coffee Sachets,C,X,CX,112773.6,5873.625,7341,1.2,Healthy,0,No Action Needed
+Tea Bags Box,C,X,CX,65061.0,3012.0833333333335,5002,1.7,Healthy,0,No Action Needed
+Vegan Meal Option,C,X,CX,38915.5,249.45833333333334,573,2.3,Healthy,0,No Action Needed
