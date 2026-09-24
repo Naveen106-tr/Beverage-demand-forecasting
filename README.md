@@ -125,3 +125,5 @@ A companion analysis (`sku_segmentation/abc_xyz_kmeans_analysis.py`) demonstrati
 ![ABC-XYZ Segmentation](sku_segmentation/abc_xyz_scatter.png)
 
 **Why this matters:** the AZ quadrant (high value, erratic demand — e.g., a rare limited-edition product) is the hardest and highest-stakes group to plan for: too valuable to ignore, but too unpredictable for a sophisticated statistical model to reliably forecast. These products typically need a fundamentally different strategy (larger safety buffers, more frequent manual review) rather than more forecasting sophistication. Conversely, CX products (low value, stable demand) need minimal attention — just a standing reorder process.
+
+- [Forecast Accuracy & Bias Analysis](./forecast_accuracy_bias/README_ForecastAccuracyBias_Addition.md) — why a good accuracy score doesn't mean an unbiased forecast, using real seasonal sales data
